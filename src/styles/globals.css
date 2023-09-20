@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Inter", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+}
+
+@layer base {
+    .primary-btn {
+        @apply bg-gradient-to-tr from-primary to-primary-dark py-4 px-12 rounded text-base transition-transform duration-75 ease-linear active:scale-105;
+    }
+}
