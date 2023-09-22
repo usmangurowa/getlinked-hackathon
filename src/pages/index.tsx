@@ -1,6 +1,15 @@
+import {
+    Facebook,
+    Instagram,
+    Linkedin,
+    LocationMarker,
+    Phone,
+    TwitterX,
+} from "@/components/Icons";
 import NavBar from "@/components/NavBar";
 import { clsx } from "class-flex";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -241,11 +250,11 @@ export default function Home() {
                     <Timeline {...timeline} index={index + 1} key={index} />
                 ))}
             </section>
-            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat h-screen">
-                <div className="container py-10 gap-5 grid grid-cols-1 md:grid-cols-5 h-full items-center ">
-                    <div className="md:col-span-5 col-span-1">
-                        <div className="md:w-fit w-full md:text-left text-center md:ml-auto">
-                            <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative">
+            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat xl:h-screen min-h-screen">
+                <div className="container py-10  gap-5 grid grid-cols-1 xl:grid-cols-5 h-full items-center ">
+                    <div className="xl:col-span-5 col-span-1">
+                        <div className="xl:w-fit w-full xl:text-left text-center xl:ml-auto">
+                            <h2 className="font-black xl:text-3xl xl:whitespace-nowrap text-center xl:text-left text-xl z-10 relative">
                                 Prizes and <br />
                                 <span className="text-primary">Rewards</span>
                             </h2>
@@ -255,12 +264,12 @@ export default function Home() {
                             </p>
                         </div>
                     </div>
-                    <div className="md:col-span-2 col-span-1 w-full relative h-[482px] ">
+                    <div className="xl:col-span-2 col-span-1 w-full relative h-[482px] ">
                         <Image src={"/images/cup.svg"} alt="Cup" fill />
                     </div>
 
-                    <div className="md:col-span-3 col-span-1 flex items-end w-full h-full ">
-                        <div className="flex flex-col space-y-40 md:space-y-0 md:flex-row w-full items-center justify-between ">
+                    <div className="xl:col-span-3 col-span-1 flex items-end w-full h-full xl:mt-0 mt-0 md:mt-16">
+                        <div className="flex  flex-row w-full items-center justify-between ">
                             {prizes
                                 .sort((a, b) => a.index - b.index)
                                 .map((prize) => (
@@ -273,13 +282,218 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat xl:h-screen min-h-screen">
+                <div className="py-10 container md:space-y-20 space-y-10">
+                    <div className="mx-auto md:w-1/4 w-full text-center space-y-5">
+                        <h1 className="text-4xl font-bold">
+                            Parners and Sponsors
+                        </h1>
+                        <p className="text-sm">
+                            Getlinked Hackathon 1.0 is honored to have the
+                            following major companies as its partners and
+                            sponsors
+                        </p>
+                    </div>
+                    <div className="w-full border border-primary   rounded-md grid grid-cols-3 p-10 items-center justify-center">
+                        {sponsors.map((sp: any, i) => (
+                            <div className=" w-full md:h-56  h-32  relative">
+                                {i > 2 ? (
+                                    <div className="w-full absolute md:-top-7 -top-4 left-0 ">
+                                        <div className="w-4/5 mx-auto border-t-4 border-primary"></div>
+                                    </div>
+                                ) : null}
+                                <div
+                                    className={clsx(
+                                        "w-full h-4/5 my-auto py-10 ",
+                                        {
+                                            "border-x-4 border-primary":
+                                                sp === "liberty-pay" ||
+                                                sp === "pay-box",
+                                        }
+                                    )}
+                                >
+                                    <div className="relative h-full w-4/5 mx-auto ">
+                                        <Image
+                                            src={`/images/${sp}.png`}
+                                            fill
+                                            alt={sp}
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+            <section className="bg-[url('/images/prizes-bg.png')]  flex flex-col justify-end bg-cover -scale-y-100   bg-no-repeat xl:h-screen min-h-screen ">
+                <div className="container -scale-y-100 grid xl:grid-cols-2 grid-cols-1 xl:gap-0 gap-10">
+                    <div className="w-full space-y-10">
+                        <div className="space-y-5">
+                            <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative">
+                                Privacy Policy and
+                                <br />
+                                <span className="text-primary">Terms</span>
+                            </h2>
+                            <p className="text-sm my-3">
+                                Last updated on September 12, 2023
+                            </p>
+                            <p className="text-sm">
+                                {`Below are our privacy & policy, which outline a lot of
+                        goodies. it’s our aim to always take of our participant`}
+                            </p>
+                        </div>
+                        <div className="w-full flex flex-col border border-primary rounded-md bg-black/20 p-12 space-y-8">
+                            <p>
+                                {`At getlinked tech Hackathon 1.0, we value your privacy
+                                    and are committed to protecting your personal information.
+                                    This Privacy Policy outlines how we collect, use, disclose, 
+                                    and safeguard your data when you participate in our tech 
+                                    hackathon event. By participating in our event, you consent 
+                                    to the practices described in this policy.`}
+                            </p>
+                            <div>
+                                <p className="font-bold text-base text-primary">
+                                    Licensing Policy
+                                </p>
+                                <p className="font-bold text-sm">
+                                    Here are terms of our Standard License:
+                                </p>
+                            </div>
+
+                            <ul className="space-y-5">
+                                <li className="pl-6 bg-[length:16px_16px] bg-[url('/images/check.svg')] leading-normal bg-no-repeat">
+                                    The Standard License grants you a
+                                    non-exclusive right to navigate and register
+                                    for our event
+                                </li>
+                                <li className="pl-6 bg-[length:16px_16px] bg-[url('/images/check.svg')] leading-normal bg-no-repeat">
+                                    You are licensed to use the item available
+                                    at any free source sites, for your project
+                                    developement
+                                </li>
+                            </ul>
+                            <button className="primary-btn mx-auto">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                    <div className="w-full relative xl:h-full h-[447px]">
+                        <Image
+                            src={"/images/terms.png"}
+                            fill
+                            alt="idea"
+                            className="object-contain"
+                        />
+                    </div>
+                </div>
+            </section>
+            <footer className="bg-[url('/images/footer-bg.png')]  bg-cover bg-no-repeat  ">
+                <div className="w-full container grid grid-cols-1 xl:grid-cols-4 xl:py-20 py-10 xl:gap-5 gap-10">
+                    <div className="xl:col-span-2 col-span-1 space-y-5">
+                        <Link href="/" className="">
+                            <Image
+                                src={require("../../public/images/getlinked.svg")}
+                                width={150}
+                                height={60}
+                                alt="Logo"
+                            />
+                        </Link>
+                        <p className="xl:w-4/5 text-sm">
+                            {`Getlinked Tech Hackathon is a technology innovation program 
+                                established by a group of organizations with the aim of showcasing 
+                                young and talented individuals in the field of technology`}
+                        </p>
+
+                        <div className="flex items-center divide-x-2 divide-primary">
+                            <Link href={"#"} className="pr-5">
+                                Terms Of Use
+                            </Link>
+                            <Link href={"#"} className="pl-5">
+                                Privacy Policy
+                            </Link>
+                        </div>
+                    </div>
+
+                    <ul className="space-y-4 col-span-1">
+                        <li className="font-bold text-primary text-base">
+                            Useful Links
+                        </li>
+                        {links.map((link) => (
+                            <li>
+                                <Link href={link.href}>{link.label}</Link>
+                            </li>
+                        ))}
+                        <li className="text-primary flex">
+                            Follow Us
+                            <ul className="flex items-center ml-3 space-x-3">
+                                <li>
+                                    <Instagram />
+                                </li>
+                                <li>
+                                    <TwitterX />
+                                </li>
+                                <li>
+                                    <Facebook />
+                                </li>
+                                <li>
+                                    <Linkedin />
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul className="space-y-4 col-span-1">
+                        <li className="font-bold text-primary text-base">
+                            Useful Links
+                        </li>
+                        <li className="flex space-x-4 items-center">
+                            <Phone /> <span>+234 679 81819</span>
+                        </li>
+                        <li className="flex space-x-4 items-center">
+                            <LocationMarker />{" "}
+                            <span>27,Alara Street Yaba 100012 Lagos State</span>
+                        </li>
+                    </ul>
+                    <div className="xl:col-span-4 col-span-1 text-center mt-10">
+                        <span>All rights reserved. © getlinked Ltd.</span>
+                    </div>
+                </div>
+            </footer>
         </>
     );
 }
 
-// bg-gradient-radial
+const links = [
+    {
+        href: "#overview",
+        label: "Overview",
+    },
+    {
+        href: "#timeline",
+        label: "Timeline",
+    },
+    {
+        href: "#faqs",
+        label: "FAQs",
+    },
+    {
+        href: "#contact",
+        label: "Contact",
+    },
+    {
+        href: "/register",
+        label: "Register",
+    },
+];
 
-// before:absolute before:contents-['']  before:top-0 before:left-52 before:bg-gradient-radial before:bg-primary-dark/50 before:rounded-full before:h-96 before:w-96 before:blur-3xl
+const sponsors = [
+    "liberty-assured",
+    "liberty-pay",
+    "winwise",
+    "wisper",
+    "pay-box",
+    "vizual-plus",
+];
 
 const faqs = [
     {
@@ -417,33 +631,41 @@ const prizes = [
 ];
 
 const PrizeCard = ({ index, position, prize, image }: (typeof prizes)[0]) => (
-    <div className="w-fit relative overflow-visible">
+    <div className="xl:w-fit w-[30%] relative overflow-visible ">
         <img
             src={image}
             className={clsx("absolute   left-0 z-50 object-contain ", {
-                "w-[296px] h-[296px] scale-[1.4] -top-32": position === "1st",
-                "w-full h-[180px] -top-20": position !== "1st",
+                "w-[296px] h-[296px] scale-[1.4] xl:-top-32 -top-40":
+                    position === "1st",
+                "w-full h-[180px] xl:-top-20 -top-28": position !== "1st",
             })}
             alt=""
         />
         <div
             className={clsx(
-                "w-[212px] text-center rounded-lg p-5 flex flex-col justify-end relative",
+                "xl:w-[212px] w-full text-center rounded-lg xl:p-5 p-2 flex flex-col justify-end relative",
                 {
-                    "bg-primary-dark/20 h-[347px] border-primary-dark border":
+                    "bg-primary-dark/20 xl:h-[347px] md:h-[250px] h-[147px] border-primary-dark border":
                         position === "1st",
-                    "bg-primary/20  h-[296px] border-primary border":
+                    "bg-primary/20  xl:h-[296px] md:h-[200px] h-[125px] border-primary border":
                         position !== "1st",
                 }
             )}
         >
-            <span className="font-bold text-4xl">{position}</span>
-            <span className="text-2xl font-semibold">Runner</span>
+            <span className="font-bold xl:text-4xl text-xl md:text-2xl">
+                {position}
+            </span>
+            <span className="xl:text-2xl md:text-lg text-sm font-semibold">
+                Runner
+            </span>
             <span
-                className={clsx("font-bold text-3xl", {
-                    "text-primary-dark": position === "1st",
-                    "text-primary": position !== "1st",
-                })}
+                className={clsx(
+                    "font-bold text-base md:text-2xl xl:text-3xl mb-2",
+                    {
+                        "text-primary-dark": position === "1st",
+                        "text-primary": position !== "1st",
+                    }
+                )}
             >
                 {prize}
             </span>
