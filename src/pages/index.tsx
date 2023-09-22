@@ -209,8 +209,12 @@ export default function Home() {
                         ask about getlinked Hackathon 1.0
                     </p>
                     <div className="space-y-3">
-                        {faqs.map((faq) => (
-                            <Collapse title={faq.title} content={faq.content} />
+                        {faqs.map((faq, i) => (
+                            <Collapse
+                                key={i}
+                                title={faq.title}
+                                content={faq.content}
+                            />
                         ))}
                     </div>
                 </div>
