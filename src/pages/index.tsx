@@ -296,7 +296,10 @@ export default function Home() {
                     </div>
                     <div className="w-full border border-primary   rounded-md grid grid-cols-3 p-10 items-center justify-center">
                         {sponsors.map((sp: any, i) => (
-                            <div className=" w-full md:h-56  h-32  relative">
+                            <div
+                                key={i}
+                                className=" w-full md:h-56  h-32  relative"
+                            >
                                 {i > 2 ? (
                                     <div className="w-full absolute md:-top-7 -top-4 left-0 ">
                                         <div className="w-4/5 mx-auto border-t-4 border-primary"></div>
@@ -420,7 +423,7 @@ export default function Home() {
                             Useful Links
                         </li>
                         {links.map((link) => (
-                            <li>
+                            <li key={link.label}>
                                 <Link href={link.href}>{link.label}</Link>
                             </li>
                         ))}
