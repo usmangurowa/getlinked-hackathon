@@ -1,10 +1,11 @@
 import NavBar from "@/components/NavBar";
+import { clsx } from "class-flex";
 import Image from "next/image";
 
 export default function Home() {
     return (
         <>
-            <main className="flex  h-screen flex-col items-center justify-between relative divide-y divide-gray-500 bg-[url('/images/hero-bg.svg')]  bg-no-repeat ">
+            <main className="flex min-h-screen md:h-screen flex-col items-center justify-between relative divide-y divide-gray-500 bg-[url('/images/hero-bg.svg')]  bg-no-repeat ">
                 <NavBar />
                 <div className="w-full  h-full flex-grow relative space-y-5 md:space-y-0">
                     <div className="md:w-full container lg:text-right text-center italic flex flex-col md:items-end  w-fit py-3">
@@ -236,7 +237,38 @@ export default function Home() {
                     <Timeline {...timeline} index={index + 1} key={index} />
                 ))}
             </section>
-            <section className="container py-10  bg-[url('/images/prizes-bg.svg')] bg-contain"></section>
+            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat h-screen">
+                <div className="container py-10 gap-5 grid grid-cols-1 md:grid-cols-5 h-full items-center ">
+                    <div className="md:col-span-5 col-span-1">
+                        <div className="md:w-fit w-full md:text-left text-center md:ml-auto">
+                            <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative">
+                                Prizes and <br />
+                                <span className="text-primary">Rewards</span>
+                            </h2>
+                            <p>
+                                Highlight of the prizes or rewards for winners
+                                and <br /> for participants.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="md:col-span-2 col-span-1 w-full relative h-[482px] ">
+                        <Image src={"/images/cup.svg"} alt="Cup" fill />
+                    </div>
+
+                    <div className="md:col-span-3 col-span-1 flex items-end w-full h-full ">
+                        <div className="flex flex-col space-y-40 md:space-y-0 md:flex-row w-full items-center justify-between ">
+                            {prizes
+                                .sort((a, b) => a.index - b.index)
+                                .map((prize) => (
+                                    <PrizeCard
+                                        {...prize}
+                                        key={prize.position}
+                                    />
+                                ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
         </>
     );
 }
@@ -355,6 +387,62 @@ const Timeline = ({
         </div>
         <div className="flex-col w-2/5 justify-end md:flex hidden">
             <p className="text-primary text-2xl font-bold">{date}</p>
+        </div>
+    </div>
+);
+
+const prizes = [
+    {
+        index: 2,
+        position: "1st",
+        prize: "N400,000",
+        image: "/images/medal-1.svg",
+    },
+    {
+        index: 1,
+        position: "2nd",
+        prize: "N300,000",
+        image: "/images/medal-2.svg",
+    },
+    {
+        index: 3,
+        position: "3rd",
+        prize: "N150,000",
+        image: "/images/medal-3.svg",
+    },
+];
+
+const PrizeCard = ({ index, position, prize, image }: (typeof prizes)[0]) => (
+    <div className="w-fit relative overflow-visible">
+        <img
+            src={image}
+            className={clsx("absolute   left-0 z-50 object-contain ", {
+                "w-[296px] h-[296px] scale-[1.4] -top-32": position === "1st",
+                "w-full h-[180px] -top-20": position !== "1st",
+            })}
+            alt=""
+        />
+        <div
+            className={clsx(
+                "w-[212px] text-center rounded-lg p-5 flex flex-col justify-end relative",
+                {
+                    "bg-primary-dark/20 h-[347px] border-primary-dark border":
+                        position === "1st",
+                    "bg-primary/20  h-[296px] border-primary border":
+                        position !== "1st",
+                }
+            )}
+        >
+            <span className="font-bold text-4xl">{position}</span>
+            <span className="text-2xl font-semibold">Runner</span>
+            <span
+                className={clsx("font-bold text-3xl", {
+                    "text-primary-dark": position === "1st",
+                    "text-primary": position !== "1st",
+                })}
+            >
+                {prize}
+            </span>
         </div>
     </div>
 );

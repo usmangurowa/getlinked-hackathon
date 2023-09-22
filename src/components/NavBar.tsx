@@ -38,7 +38,7 @@ const NavBar = () => {
                 </li>
                 <li className="flex-grow"></li>
                 {links.map(({ href, label }) => (
-                    <li className="2xl:px-5 px-2 hidden md:inline">
+                    <li key={label} className="2xl:px-5 px-2 hidden md:inline">
                         <Link href={href} className="p-5 block">
                             {label}
                         </Link>
