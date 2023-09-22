@@ -93,13 +93,13 @@ export default function Home() {
                         <span className="text-primary">tech Hackathon 1.0</span>
                     </h2>
                     <p className="md:text-left text-center">
-                        Our tech hackathon is a melting pot of visionaries, and
+                        {`Our tech hackathon is a melting pot of visionaries, and
                         its purpose is as clear as day: to shape the future.
                         Whether you're a coding genius, a design maverick, or a
                         concept wizard, you'll have the chance to transform your
                         ideas into reality. Solving real-world problems, pushing
                         the boundaries of technology, and creating solutions
-                        that can change the world, that's what we're all about!
+                        that can change the world, that's what we're all about!`}
                     </p>
                 </div>
             </section>
@@ -111,13 +111,13 @@ export default function Home() {
                         <span className="text-primary">Guidelines</span>
                     </h2>
                     <p className="md:text-left text-center">
-                        Our tech hackathon is a melting pot of visionaries, and
+                        {`Our tech hackathon is a melting pot of visionaries, and
                         its purpose is as clear as day: to shape the future.
                         Whether you're a coding genius, a design maverick, or a
                         concept wizard, you'll have the chance to transform your
                         ideas into reality. Solving real-world problems, pushing
                         the boundaries of technology, and creating solutions
-                        that can change the world, that's what we're all about!
+                        that can change the world, that's what we're all about!`}
                     </p>
                 </div>
 
