@@ -11,48 +11,54 @@ import { clsx } from "class-flex";
 import Image from "next/image";
 import Link from "next/link";
 
+import Balancer from "react-wrap-balancer";
+
 export default function Home() {
     return (
         <>
-            <main className="flex min-h-screen md:h-screen flex-col items-center justify-between relative divide-y divide-gray-500 bg-[url('/images/hero-bg.svg')]  bg-no-repeat ">
+            <main className="flex  min-h-screen xl:h-screen flex-col items-center justify-between relative divide-y divide-gray-500 bg-[url('/images/hero-bg.svg')]  bg-no-repeat ">
                 <NavBar />
                 <div className="w-full  h-full flex-grow relative space-y-5 md:space-y-0">
-                    <div className="md:w-full container lg:text-right text-center italic flex flex-col md:items-end  w-fit py-3">
-                        <p className="font-bold 2xl:text-4xl md:text-3xl text-base md:text-right text-center   relative ">
+                    <div className="xl:w-full container lg:text-right text-center italic flex flex-col md:items-end  w-fit py-3">
+                        <p className="font-bold 2xl:text-4xl md:text-3xl text-base xl:text-right text-center   relative ">
                             Igniting a Revolution in HR Innovation
                         </p>
                         <img
                             src="/images/curve-line.svg"
-                            alt=""
-                            className="ml-auto md:w-fit w-32 "
+                            alt="curve-line"
+                            className="ml-auto xl:w-fit w-32 "
                         />
                     </div>
-                    <div className="w-full flex md:flex-row flex-col h-full flex-grow items-center relative container ">
-                        <div className="flex flex-col md:items-start items-center md:justify-end md:h-full md:py-5  2xl:py-10 space-y-5 2xl:space-y-5">
-                            <h1 className="font-black 2xl:text-7xl md:text-6xl text-4xl whitespace-nowrap z-10 relative text-center md:text-left">
-                                <img
-                                    src="/images/bulb.png"
-                                    alt=""
-                                    className="w-8 h-8 md:w-12 md:h-12 absolute md:right-32 right-12 md:-top-8 -top-6"
-                                />
-                                getlinked Tech
-                                <br />
-                                Hackathon{" "}
-                                <span className="text-primary">1.0</span>
-                                <img
-                                    src="/images/link-bang.png"
-                                    alt=""
-                                    className="md:w-32 md:h-20 w-20 h-10 inline"
-                                />
+                    <div className="w-full flex xl:flex-row flex-col h-full flex-grow items-center justify-between relative container ">
+                        <div className="flex flex-col xl:items-start items-center xl:justify-center xl:h-full md:py-5  2xl:py-10 space-y-3 2xl:space-y-5 md:mt-10">
+                            <h1 className="font-black 2xl:text-7xl md:text-6xl text-4xl whitespace-nowrap z-10 relative text-center xl:text-left font-clash">
+                                <Balancer>
+                                    <img
+                                        src="/images/bulb.png"
+                                        alt="bulb"
+                                        className="w-8 h-8 md:w-12 md:h-12 absolute xl:right-32 md:right-20 right-12 2xl:-top-8 md:-top-9 -top-6"
+                                    />
+                                    getlinked Tech
+                                    <br />
+                                    Hackathon{" "}
+                                    <span className="text-primary">1.0</span>
+                                    <img
+                                        src="/images/link-bang.png"
+                                        alt=""
+                                        className="md:w-32 2xl:h-20 md:h-14 w-20 h-10 inline"
+                                    />
+                                </Balancer>
                             </h1>
-                            <p className="2xl:text-xl md:text-lg text-sm md:whitespace-nowrap text-center md:text-left">
+                            <p className="2xl:text-xl md:text-lg text-sm md:whitespace-nowrap text-center xl:text-left">
                                 Participate in getlinked tech Hackathon 2023
                                 stand <br />a chance to win a Big prize
                             </p>
-                            <button className="primary-btn md:self-start">
-                                Register
-                            </button>
-                            <div className="2xl:!my-20 !my-10 flex flex-row items-center space-x-10 text-white text-3xl">
+                            <Link href={"/register"}>
+                                <button className="primary-btn xl:self-start">
+                                    Register
+                                </button>
+                            </Link>
+                            <div className="2xl:my-20 font-unica my-10 flex flex-row items-center space-x-10 text-white 2xl:text-5xl md:text-4xl text-3xl">
                                 <span>
                                     00 <span className="text-xs">H</span>
                                 </span>
@@ -64,19 +70,20 @@ export default function Home() {
                                 </span>
                             </div>
                         </div>
-                        <div className="md:hidden flex relative h-[367px] w-full">
+                        <div className="xl:hidden flex relative md:h-[680px] h-[367px]  w-screen border-b border-white/20">
                             <Image
-                                src={require("../../public/images/hero.png")}
+                                src={"/images/hero.png"}
                                 fill
                                 alt="Hero"
-                                className="object-contain"
+                                className="object-contain  object-bottom"
                             />
                         </div>
                     </div>
-                    <div className="w-full absolute -right-0 bottom-0 h-full pointer-events-none !overflow-hidden flex-col justify-end md:flex hidden">
+                    {/* <hr className=" border-white/20 xl:hidden" /> */}
+                    <div className="w-screen absolute -right-0 bottom-0  h-full pointer-events-none !overflow-hidden flex-col justify-end xl:flex hidden">
                         <div className="relative w-full h-[90%] !overflow-hidden ">
                             <Image
-                                src={require("../../public/images/hero.png")}
+                                src={"/images/hero.png"}
                                 fill
                                 alt="Hero"
                                 className="object-contain object-right-bottom"
@@ -85,162 +92,186 @@ export default function Home() {
                     </div>
                 </div>
             </main>
-            <hr className=" border-gray-500" />
+            <hr className=" border-white/20 xl:block hidden" />
 
-            <section className="container grid grid-cols-1 md:grid-cols-2 py-10 justify-center items-center bg-[url('/images/section-1.svg')] bg-contain bg-no-repeat md:bg-cover md:bg-left-bottom">
-                <div className="relative w-full h-[477px]">
-                    <Image
-                        src={require("../../public/images/the-big-idea.svg")}
-                        fill
-                        alt="idea"
-                        // className="object-contain object-right"
-                    />
-                </div>
-                <div className="w-full space-y-5">
-                    <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative">
-                        Introduction to getlinked <br />
-                        <span className="text-primary">tech Hackathon 1.0</span>
-                    </h2>
-                    <p className="md:text-left text-center">
-                        {`Our tech hackathon is a melting pot of visionaries, and
+            <section
+                id="overview"
+                className=" bg-[url('/images/overview-bg.png')] bg-cover xl:min-h-[615px] min-h-fit bg-bottom "
+            >
+                <div className="container grid grid-cols-1 md:grid-cols-2 gap-5 py-10 justify-center items-center">
+                    <div className="relative w-full md:h-[477px] h-[350px]">
+                        <Image
+                            src={"/images/the-big-idea.svg"}
+                            fill
+                            alt="idea"
+                            // className="object-contain object-right"
+                        />
+                    </div>
+                    <div className="w-full space-y-5">
+                        <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative font-clash">
+                            Introduction to getlinked <br />
+                            <span className="text-primary">
+                                tech Hackathon 1.0
+                            </span>
+                        </h2>
+                        <p className="md:text-left text-center">
+                            {`Our tech hackathon is a melting pot of visionaries, and
                         its purpose is as clear as day: to shape the future.
                         Whether you're a coding genius, a design maverick, or a
                         concept wizard, you'll have the chance to transform your
                         ideas into reality. Solving real-world problems, pushing
                         the boundaries of technology, and creating solutions
                         that can change the world, that's what we're all about!`}
-                    </p>
-                </div>
-            </section>
-            <hr className=" border-gray-500" />
-            <section className="container grid grid-cols-1 md:grid-cols-2 py-10 justify-center items-center bg-[url('/images/section-2.svg')] bg-contain bg-left-bottom bg-no-repeat">
-                <div className="w-full space-y-5">
-                    <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative">
-                        Rules and <br />
-                        <span className="text-primary">Guidelines</span>
-                    </h2>
-                    <p className="md:text-left text-center">
-                        {`Our tech hackathon is a melting pot of visionaries, and
-                        its purpose is as clear as day: to shape the future.
-                        Whether you're a coding genius, a design maverick, or a
-                        concept wizard, you'll have the chance to transform your
-                        ideas into reality. Solving real-world problems, pushing
-                        the boundaries of technology, and creating solutions
-                        that can change the world, that's what we're all about!`}
-                    </p>
-                </div>
-
-                <div className="relative w-full h-[477px]">
-                    <Image
-                        src={require("../../public/images/rules-and-regulations.svg")}
-                        fill
-                        alt="idea"
-
-                        // className="object-contain object-right"
-                    />
-                </div>
-            </section>
-            <hr className=" border-gray-500" />
-            <section className="container grid grid-cols-1 md:grid-cols-2 py-10 justify-center items-center bg-[url('/images/section-3.svg')] bg-contain bg-bottom bg-no-repeat">
-                <div className="relative w-full h-[477px]">
-                    <Image
-                        src={require("../../public/images/judging.svg")}
-                        fill
-                        alt="idea"
-
-                        // className="object-contain object-right"
-                    />
-                </div>
-                <div className="w-full space-y-5 md:text-left text-center">
-                    <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative">
-                        Judging Criteria <br />
-                        <span className="text-primary">Key attributes</span>
-                    </h2>
-                    <p>
-                        <span className="text-primary font-bold">
-                            Innovation and Creativity
-                        </span>
-                        : Evaluate the uniqueness and creativity of the
-                        solution. Consider whether it addresses a real-world
-                        problem in a novel way or introduces innovative
-                        features.
-                    </p>
-                    <p>
-                        <span className="text-primary font-bold">
-                            Functionality
-                        </span>
-                        : Assess how well the solution works. Does it perform
-                        its intended functions effectively and without major
-                        issues? Judges would consider the completeness and
-                        robustness of the solution.
-                    </p>
-                    <p>
-                        <span className="text-primary font-bold">
-                            Impact and Relevance
-                        </span>
-                        : Determine the potential impact of the solution in the
-                        real world. Does it address a significant problem, and
-                        is it relevant to the target audience? Judges would
-                        assess the potential social, economic, or environmental
-                        benefits.
-                    </p>
-                    <p>
-                        <span className="text-primary font-bold">
-                            Technical Complexity
-                        </span>
-                        : Evaluate the technical sophistication of the solution.
-                        Judges would consider the complexity of the code, the
-                        use of advanced technologies or algorithms, and the
-                        scalability of the solution.
-                    </p>
-                    <p>
-                        <span className="text-primary font-bold">
-                            Adherence to Hackathon Rules
-                        </span>
-                        : Judges will Ensure that the team adhered to the rules
-                        and guidelines of the hackathon, including deadlines,
-                        use of specific technologies or APIs, and any other
-                        competition-specific requirements.
-                    </p>
-                    <button className="primary-btn">Read More</button>
-                </div>
-            </section>
-            <hr className=" border-gray-500" />
-            <section className="container grid grid-cols-1 md:grid-cols-2 py-10 justify-center items-center bg-[url('/images/section-4.svg')] bg-contain bg-right-bottom bg-no-repeat">
-                <div className="w-full space-y-5 ">
-                    <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative">
-                        Frequently Ask
-                        <br />
-                        <span className="text-primary">Question</span>
-                    </h2>
-                    <p>
-                        We got answers to the questions that you might want to
-                        ask about getlinked Hackathon 1.0
-                    </p>
-                    <div className="space-y-3">
-                        {faqs.map((faq, i) => (
-                            <Collapse
-                                key={i}
-                                title={faq.title}
-                                content={faq.content}
-                            />
-                        ))}
+                        </p>
                     </div>
                 </div>
+            </section>
+            <hr className=" border-white/20" />
+            <section className=" bg-[url('/images/rules-bg.png')] bg-cover xl:min-h-[604px] min-h-fit bg-bottom  bg-no-repeat flex flex-col justify-center">
+                <div className="container grid grid-cols-1 md:grid-cols-2 gap-5 py-10 justify-center items-center">
+                    <div className="w-full space-y-5">
+                        <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative font-clash">
+                            Rules and <br />
+                            <span className="text-primary">Guidelines</span>
+                        </h2>
+                        <p className="md:text-left text-center">
+                            {`Our tech hackathon is a melting pot of visionaries, and
+                        its purpose is as clear as day: to shape the future.
+                        Whether you're a coding genius, a design maverick, or a
+                        concept wizard, you'll have the chance to transform your
+                        ideas into reality. Solving real-world problems, pushing
+                        the boundaries of technology, and creating solutions
+                        that can change the world, that's what we're all about!`}
+                        </p>
+                    </div>
 
-                <div className="relative w-full h-[741px]  ">
-                    <Image
-                        src={require("../../public/images/faq.svg")}
-                        fill
-                        alt="idea"
-                        className="object-contain object-right"
-                    />
+                    <div className="relative w-full xl:h-[477px] h-[350px]">
+                        <div className="2xl:right-44 right-28 top-20 w-32 h-32 bg-gradient-to-r from-primary to-primary-dark rounded-full xl:block hidden  absolute"></div>
+                        <Image
+                            src={"/images/rules-and-regulations.svg"}
+                            fill
+                            alt="idea"
+                            className="object-right"
+
+                            // className="object-contain object-right"
+                        />
+                    </div>
                 </div>
             </section>
-            <hr className=" border-gray-500" />
+            <hr className=" border-white/20" />
+            <section className=" bg-[url('/images/judgding-bg.png')] xl:min-h-[976px] xl:bg-cover xl:bg-bottom bg-cover bg-top flex flex-col justify-center bg-no-repeat">
+                <div className="container grid grid-cols-1 md:grid-cols-2 py-10 justify-center items-center">
+                    <div className="relative w-full xl:h-[477px] h-[350px]">
+                        <div className="2xl:left-32 left-20 -top-10 w-32 h-32 bg-gradient-to-r from-primary to-primary-dark rounded-full xl:block hidden  absolute"></div>
+                        <Image
+                            src={"/images/judging.svg"}
+                            fill
+                            alt="idea"
+
+                            // className="object-contain object-right"
+                        />
+                    </div>
+                    <div className="w-full space-y-5 md:text-left text-center">
+                        <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative font-clash">
+                            Judging Criteria <br />
+                            <span className="text-primary">Key attributes</span>
+                        </h2>
+                        <p>
+                            <span className="text-primary font-bold">
+                                Innovation and Creativity
+                            </span>
+                            : Evaluate the uniqueness and creativity of the
+                            solution. Consider whether it addresses a real-world
+                            problem in a novel way or introduces innovative
+                            features.
+                        </p>
+                        <p>
+                            <span className="text-primary font-bold">
+                                Functionality
+                            </span>
+                            : Assess how well the solution works. Does it
+                            perform its intended functions effectively and
+                            without major issues? Judges would consider the
+                            completeness and robustness of the solution.
+                        </p>
+                        <p>
+                            <span className="text-primary font-bold">
+                                Impact and Relevance
+                            </span>
+                            : Determine the potential impact of the solution in
+                            the real world. Does it address a significant
+                            problem, and is it relevant to the target audience?
+                            Judges would assess the potential social, economic,
+                            or environmental benefits.
+                        </p>
+                        <p>
+                            <span className="text-primary font-bold">
+                                Technical Complexity
+                            </span>
+                            : Evaluate the technical sophistication of the
+                            solution. Judges would consider the complexity of
+                            the code, the use of advanced technologies or
+                            algorithms, and the scalability of the solution.
+                        </p>
+                        <p>
+                            <span className="text-primary font-bold">
+                                Adherence to Hackathon Rules
+                            </span>
+                            : Judges will Ensure that the team adhered to the
+                            rules and guidelines of the hackathon, including
+                            deadlines, use of specific technologies or APIs, and
+                            any other competition-specific requirements.
+                        </p>
+                        <button className="primary-btn">Read More</button>
+                    </div>
+                </div>
+            </section>
+            <hr className=" border-white/20" />
+            <section
+                id="faqs"
+                className=" bg-[url('/images/faq-bg.png')] xl:min-h-[976px] bg-cover bg-no-repeat flex flex-col justify-center"
+            >
+                <div className="container grid grid-cols-1 md:grid-cols-2 py-10 justify-center items-center">
+                    <div className="w-full space-y-5 ">
+                        <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative font-clash">
+                            Frequently Ask
+                            <br />
+                            <span className="text-primary">Question</span>
+                        </h2>
+                        <p>
+                            We got answers to the questions that you might want
+                            to ask about getlinked Hackathon 1.0
+                        </p>
+                        <div className="space-y-3">
+                            {faqs.map((faq, i) => (
+                                <Collapse
+                                    key={i}
+                                    title={faq.title}
+                                    content={faq.content}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="relative w-full xl:h-[741px] h-[500px] ">
+                        <Image
+                            src={"/images/faq.svg"}
+                            fill
+                            alt="idea"
+                            className="object-fill"
+                        />
+                    </div>
+                </div>
+            </section>
+            <hr className=" border-white/20" />
             <section className="container py-10 space-y-5">
                 <div className="w-full !mb-16">
-                    <h1 className="font-bold text-4xl text-center">Timeline</h1>
+                    <h1
+                        id="timeline"
+                        className="font-bold text-4xl text-center font-clash"
+                    >
+                        Timeline
+                    </h1>
                     <p className="text-center md:w-1/4 w-4/5 mx-auto my-2">
                         Here is the breakdown of the time we anticipate using
                         for the upcoming event.
@@ -250,11 +281,11 @@ export default function Home() {
                     <Timeline {...timeline} index={index + 1} key={index} />
                 ))}
             </section>
-            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat xl:h-screen min-h-screen">
+            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat 2xl:h-screen min-h-fit">
                 <div className="container py-10  gap-5 grid grid-cols-1 xl:grid-cols-5 h-full items-center ">
                     <div className="xl:col-span-5 col-span-1">
-                        <div className="xl:w-fit w-full xl:text-left text-center xl:ml-auto">
-                            <h2 className="font-black xl:text-3xl xl:whitespace-nowrap text-center xl:text-left text-xl z-10 relative">
+                        <div className="xl:w-fit w-full xl:text-left text-center xl:ml-auto xl:mb-20">
+                            <h2 className="font-black xl:text-3xl xl:whitespace-nowrap text-center xl:text-left text-xl z-10 relative font-clash">
                                 Prizes and <br />
                                 <span className="text-primary">Rewards</span>
                             </h2>
@@ -268,7 +299,7 @@ export default function Home() {
                         <Image src={"/images/cup.svg"} alt="Cup" fill />
                     </div>
 
-                    <div className="xl:col-span-3 col-span-1 flex items-end w-full h-full xl:mt-0 mt-0 md:mt-16">
+                    <div className="xl:col-span-3 col-span-1 flex items-end w-full h-full xl:mt-0 mt-10 md:mt-40">
                         <div className="flex  flex-row w-full items-center justify-between ">
                             {prizes
                                 .sort((a, b) => a.index - b.index)
@@ -282,11 +313,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat xl:h-screen min-h-screen">
-                <div className="py-10 container md:space-y-20 space-y-10">
-                    <div className="mx-auto md:w-1/4 w-full text-center space-y-5">
-                        <h1 className="text-4xl font-bold">
-                            Parners and Sponsors
+            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat 2xl:h-screen min-h-fit md:mt-10 mt-0">
+                <div className="py-10 container xl:space-y-20 space-y-10 flex flex-col justify-center">
+                    <div className="mx-auto xl:w-1/4 w-full text-center space-y-5">
+                        <h1 className="text-4xl  font-bold font-clash">
+                            <Balancer>Partners and Sponsors</Balancer>
                         </h1>
                         <p className="text-sm">
                             Getlinked Hackathon 1.0 is honored to have the
@@ -329,11 +360,14 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-[url('/images/prizes-bg.png')]  flex flex-col justify-end bg-cover -scale-y-100   bg-no-repeat xl:h-screen min-h-screen ">
-                <div className="container -scale-y-100 grid xl:grid-cols-2 grid-cols-1 xl:gap-0 gap-10">
+            <section className="bg-[url('/images/prizes-bg.png')]  flex flex-col bg-cover   bg-no-repeat 2xl:h-screen min-h-screen ">
+                <div className="container  grid xl:grid-cols-2 grid-cols-1 xl:gap-0 gap-10 xl:py-20 py-10">
                     <div className="w-full space-y-10">
-                        <div className="space-y-5">
-                            <h2 className="font-black md:text-3xl md:whitespace-nowrap text-center md:text-left text-xl z-10 relative">
+                        <div className="space-y-5 text-center xl:text-left">
+                            <h2
+                                id="privacy-policy"
+                                className="font-black font-clash md:text-3xl md:whitespace-nowrap text-center xl:text-left text-xl z-10 relative font-clash"
+                            >
                                 Privacy Policy and
                                 <br />
                                 <span className="text-primary">Terms</span>
@@ -347,7 +381,7 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="w-full flex flex-col border border-primary rounded-md bg-black/20 p-12 space-y-8">
-                            <p>
+                            <p className="text-center xl:text-left">
                                 {`At getlinked tech Hackathon 1.0, we value your privacy
                                     and are committed to protecting your personal information.
                                     This Privacy Policy outlines how we collect, use, disclose, 
@@ -396,7 +430,7 @@ export default function Home() {
                     <div className="xl:col-span-2 col-span-1 space-y-5">
                         <Link href="/" className="">
                             <Image
-                                src={require("../../public/images/getlinked.svg")}
+                                src={"/images/getlinked.svg"}
                                 width={150}
                                 height={60}
                                 alt="Logo"
@@ -409,10 +443,10 @@ export default function Home() {
                         </p>
 
                         <div className="flex items-center divide-x-2 divide-primary">
-                            <Link href={"#"} className="pr-5">
+                            <Link href={"#privacy-policy"} className="pr-5">
                                 Terms Of Use
                             </Link>
-                            <Link href={"#"} className="pl-5">
+                            <Link href={"#privacy-policy"} className="pl-5">
                                 Privacy Policy
                             </Link>
                         </div>
@@ -480,7 +514,7 @@ const links = [
         label: "FAQs",
     },
     {
-        href: "#contact",
+        href: "/contact",
         label: "Contact",
     },
     {

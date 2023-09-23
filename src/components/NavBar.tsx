@@ -3,28 +3,34 @@ import Link from "next/link";
 import React from "react";
 import { Close, MenuIcon } from "./Icons";
 import { clsx } from "class-flex";
+import { useRouter } from "next/router";
 
 const links = [
     {
-        href: "#timeline",
+        href: "/#timeline",
         label: "Timeline",
     },
     {
-        href: "#overview",
+        href: "/#overview",
         label: "Overview",
     },
     {
-        href: "#faqs",
+        href: "/#faqs",
         label: "FAQs",
     },
     {
-        href: "#contact",
+        href: "/contact",
         label: "Contact",
     },
 ];
 
 const NavBar = () => {
     const [open, setOpen] = React.useState(false);
+    const router = useRouter();
+
+    React.useEffect(() => {
+        setOpen(false);
+    }, [router.asPath]);
     return (
         <>
             <nav className="flex items-start container">
@@ -43,19 +49,40 @@ const NavBar = () => {
                     {links.map(({ href, label }) => (
                         <li
                             key={label}
-                            className="2xl:px-5 px-2 hidden md:inline"
+                            className={clsx(
+                                "2xl:px-5 px-2 hidden xl:inline text-base font-medium",
+                                {
+                                    "text-transparent bg-clip-text bg-gradient-to-r from-primary-dark  to-primary !font-bold":
+                                        router.pathname == href,
+                                }
+                            )}
                         >
                             <Link href={href} className="p-5 block">
                                 {label}
                             </Link>
                         </li>
                     ))}
-                    <li className="hidden md:inline">
-                        <Link href={"#"} className="primary-btn">
-                            Register
-                        </Link>
+                    <li className="hidden xl:inline !ml-16">
+                        <button
+                            className={clsx({
+                                "bg-gradient-to-r from-primary to-primary-dark  rounded p-[2px]":
+                                    router.pathname === "/register",
+                            })}
+                        >
+                            <Link
+                                href={"/register"}
+                                className={clsx({
+                                    " rounded text-base inline-block bg-primary-background !py-3 px-12":
+                                        router.pathname === "/register",
+                                    "primary-btn":
+                                        router.pathname !== "/register",
+                                })}
+                            >
+                                Register
+                            </Link>
+                        </button>
                     </li>
-                    <li className="md:hidden">
+                    <li className="xl:hidden">
                         <button onClick={() => setOpen(!open)}>
                             <MenuIcon />
                         </button>
@@ -64,7 +91,7 @@ const NavBar = () => {
             </nav>
             <div
                 className={clsx(
-                    "bg-primary-background  z-50 min-h-fit h-[50vh] transition-all duration-300 ease-in-out absolute top-0 left-0",
+                    "bg-primary-background  z-50 min-h-fit h-screen fixed transition-all duration-300 ease-in-out  top-0 left-0",
                     {
                         "w-screen": open,
                         "w-0 overflow-hidden": !open,
@@ -78,7 +105,7 @@ const NavBar = () => {
                 </div>
                 <ul
                     className={clsx(
-                        "container transition-all duration-1000 ease-in-out",
+                        "container transition-all duration-1000 ease-in-out ",
                         {
                             "opacity-0": !open,
                             "opacity-100": open,
@@ -90,13 +117,13 @@ const NavBar = () => {
                             key={label}
                             // className="2xl:px-5 px-2 hidden md:inline"
                         >
-                            <Link href={href} className="px-5 py-3 block">
+                            <Link href={href} className="p-5 block">
                                 {label}
                             </Link>
                         </li>
                     ))}
-                    <li className="px-5 py-4 block">
-                        <Link href={"#"} className="primary-btn">
+                    <li className="p-5 block">
+                        <Link href={"/register"} className="primary-btn">
                             Register
                         </Link>
                     </li>

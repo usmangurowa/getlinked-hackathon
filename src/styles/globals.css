@@ -10,6 +10,34 @@ body {
 
 @layer base {
     .primary-btn {
-        @apply bg-gradient-to-tr from-primary to-primary-dark py-4 px-12 rounded text-base transition-transform duration-75 ease-linear active:scale-105;
+        @apply bg-gradient-to-r from-primary to-primary-dark py-4 px-12 rounded text-base transition-transform duration-75 ease-linear active:scale-105;
     }
+}
+
+.font-clash {
+    font-family: "ClashDisplay", sans-serif;
+}
+
+.font-unica {
+    font-family: "Unica One", cursive;
+}
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../../public/fonts/ClashDisplay-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../../public/fonts/ClashDisplay-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ClashDisplay";
+    src: url("../../public/fonts/ClashDisplay-Semibold.ttf");
+    font-weight: 600;
+    font-style: normal;
 }
