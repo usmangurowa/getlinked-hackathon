@@ -281,7 +281,7 @@ export default function Home() {
                     <Timeline {...timeline} index={index + 1} key={index} />
                 ))}
             </section>
-            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat 2xl:h-screen min-h-fit">
+            <section className="bg-[url('/images/prizes-bg.png')] bg-cover bg-bottom  bg-no-repeat 2xl:h-screen min-h-fit">
                 <div className="container py-10  gap-5 grid grid-cols-1 xl:grid-cols-5 h-full items-center ">
                     <div className="xl:col-span-5 col-span-1">
                         <div className="xl:w-fit w-full xl:text-left text-center xl:ml-auto xl:mb-20">
@@ -313,7 +313,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-[url('/images/prizes-bg.png')] bg-cover  bg-no-repeat 2xl:h-screen min-h-fit md:mt-10 mt-0">
+            <section className="bg-[url('/images/partners-bg.png')] bg-cover  bg-no-repeat bg-bottom 2xl:h-screen min-h-fit md:mt-10 mt-0">
                 <div className="py-10 container xl:space-y-20 space-y-10 flex flex-col justify-center">
                     <div className="mx-auto xl:w-1/4 w-full text-center space-y-5">
                         <h1 className="text-4xl  font-bold font-clash">
@@ -360,7 +360,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="bg-[url('/images/prizes-bg.png')]  flex flex-col bg-cover   bg-no-repeat 2xl:h-screen min-h-screen ">
+            <section className="bg-[url('/images/privacy-policy-bg.png')]  flex flex-col bg-cover bg-top  bg-no-repeat 2xl:h-screen min-h-fit ">
                 <div className="container  grid xl:grid-cols-2 grid-cols-1 xl:gap-0 gap-10 xl:py-20 py-10">
                     <div className="w-full space-y-10">
                         <div className="space-y-5 text-center xl:text-left">
